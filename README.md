@@ -17,7 +17,7 @@ Read across the PDB to find similar binding sites and their associated ligands f
    - Load all XChem structures in `biopython`.
    - Get residues in a defined radius of ligand centroids.
    - Find overlapping residues across all structures (define residue coverage threshold).
-   - Check out [notebook](https://github.com/dominiquesydow/covid19/blob/master/notebooks/binding_site_definition.ipynb).
+   - Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/binding_site_definition.ipynb).
 
 4. [Done] Submit job to ProBis, including binding site definition
    - Full 6LU7: [ProBis job URL](http://probis.cmm.ki.si/?what=job&job_id=24032003478165)
@@ -35,7 +35,7 @@ Read across the PDB to find similar binding sites and their associated ligands f
    
 6. [Done] Parse ProBis ligand and protein tables
 
-   - Check out [notebook](https://github.com/dominiquesydow/covid19/blob/master/notebooks/probis_parser.ipynb).
+   - Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/probis_parser.ipynb).
 
 7. Query ChEMBL for ligands (`chembl_webresource_client`)
    - Get ligand and bioactivity data for ligands from *ProBis ligand table* (by ligand name?).
