@@ -7,9 +7,10 @@ Read across the PDB to find similar binding sites and their associated ligands f
 1. [Done] Decide on a target
    - COVID-19 main protease
    
-2. [Done] Decide on PDB ID
+2. [Done] Decide on structure
    - [6LU7](http://www.rcsb.org/structure/6LU7)
-   - In complex with fragments from [Diamond's XChem fragment screen](https://www.diamond.ac.uk/covid-19/for-scientists/Main-protease-structure-and-XChem.html) 
+   - In complex with fragments from [Diamond's XChem fragment screen](https://www.diamond.ac.uk/covid-19/for-scientists/Main-protease-structure-and-XChem.html)
+   - Diamond's XChem fragment screen structures live [here](https://github.com/dominiquesydow/covid19/tree/master/data/Mpro_All_PDBs). 
 
 3. [Done] Define binding site residues
    - Load all XChem structures in `biopython`
