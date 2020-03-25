@@ -40,7 +40,7 @@ Read across the PDB to find similar binding sites and their associated molecules
    
 6. [Done] Parse ProBis ligand and protein tables
 
-   Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/probis_parser.ipynb).
+   Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/probis_data_preparation.ipynb).
 
 ### Active molecules against similar proteins
 
