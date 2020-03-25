@@ -32,11 +32,20 @@ def targets_by_uniprot_ids(uniprot_ids):
             'target_type'
         )
         
-        targets = pd.DataFrame.from_records(targets)
+        targets = pd.DataFrame.from_dict(targets)
         targets['uniprot_id'] = uniprot_id
         targets_all.append(targets)
         
-    return pd.concat(targets_all, sort=False)
+    targets_all = pd.concat(targets_all, sort=False).reset_index(drop=True)
+        
+    # Some UniProt IDs return multiple target IDs, keep only first
+    targets_all.drop_duplicates(
+        'target_chembl_id',
+        keep='first',
+        inplace=True
+    )
+        
+    return targets_all
 
 
 def bioactivities_by_target_chembl_ids(target_chembl_ids):
@@ -66,10 +75,11 @@ def bioactivities_by_target_chembl_ids(target_chembl_ids):
                                          'relation', 
                                          'value',
                                          'target_chembl_id', 
-                                         'target_organism'
+                                         'target_organism',
+                                         'pref_name'
                                      )
         
-        bioactivities = pd.DataFrame.from_records(bioactivities)
+        bioactivities = pd.DataFrame.from_dict(bioactivities).reset_index(drop=True)
         
         # Remove entries where any data is missing
         bioactivities.dropna(
@@ -101,41 +111,26 @@ def molecules_by_molecule_chembl_ids(molecule_chembl_ids):
     
     for i, molecule_chembl_id in enumerate(molecule_chembl_ids):
         
-        if i%100 == 0:
+        if i%1000 == 0:
             print(f'Progress {datetime.now()}: {i}/{len(molecule_chembl_ids)}')
     
         molecules = MOLECULE_API.filter(
             molecule_chembl_id = molecule_chembl_id
         ).only('molecule_chembl_id','molecule_structures')
         
-        molecules = pd.DataFrame.from_records(molecules)
-        
-        # Remove entries where any data is missing
-        molecules.dropna(
-            axis=0, 
-            how='any', 
-            inplace=True
-        )
-        
+        molecules = pd.DataFrame.from_dict(molecules).reset_index(drop=True)
         molecules_all.append(molecules)
         
-    molecules = pd.concat(molecules, sort=False)
+    molecules_all = pd.concat(molecules_all, sort=False).reset_index(drop=True)
     
     # Split different molecule structure representations in individual columns
-    for index, row in molecules.iterrows():
-        for key in molecules.molecule_structures[0].keys():
-            molecules[key] = molecules.apply(lambda x: x.molecule_structures[key], axis=1)
+    for key in molecules_all.molecule_structures.iloc[0].keys():
+        molecules_all[key] = molecules_all.apply(lambda x: x.molecule_structures[key], axis=1)
 
-    molecules.drop(['molecule_structures', 'molfile'], axis=1, inplace=True)   
+    # Drop some columns
+    molecules_all.drop(['molecule_structures', 'molfile'], axis=1, inplace=True)   
     
-    # Some molecule entries are return multiple times (I do not know why), keep only first
-    molecules.drop_duplicates(
-        'molecule_chembl_id',
-        keep='first',
-        inplace=True
-    )
-    
-    return molecules
+    return molecules_all
     
 
 def standardize_bioactivities(bioactivities):
