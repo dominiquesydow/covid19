@@ -1,5 +1,5 @@
 """
-Parse ProBis ligand and protein download csv files.
+Utility functions for ProBis data.
 """
 
 import itertools
