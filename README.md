@@ -49,7 +49,9 @@ Read across the PDB to find similar binding sites and their associated molecules
    - Get molecule and bioactivity data for proteins from *ProBis protein table* (by UniProt IDs).
    - Filter ChEMBL molecules by bioactivity (define threshold) to keep only “active” molecules.
 
-   Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/chembl_ligands_from_probis_proteins.ipynb).
+   Checkout notebooks:
+   - Pipeline [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/chembl_molecules_from_uniprot_ids.ipynb)
+   - Molecule library [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/molecule_library.ipynb)
    
 8. ProBis offers also prediced ligands (*ProBis ligand table*).
    - Find out how this dataset can be of use here.
