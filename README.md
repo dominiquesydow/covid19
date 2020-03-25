@@ -36,7 +36,7 @@ Read across the PDB to find similar binding sites and their associated molecules
    - *ProBis protein table*: "Similar Proteins" tab > "Download Table"
    - *ProBis ligand table*: "Predicted Ligands" tab > "Download Table"
    
-   ProBis results live [here](https://github.com/dominiquesydow/covid19/tree/master/data/probis)
+   ProBis results live [here](https://github.com/dominiquesydow/covid19/tree/master/data/probis).
    
 6. [Done] Parse ProBis ligand and protein tables
 
@@ -50,8 +50,8 @@ Read across the PDB to find similar binding sites and their associated molecules
    - Filter ChEMBL molecules by bioactivity (define threshold) to keep only “active” molecules.
 
    Checkout notebooks:
-   - Pipeline [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/chembl_molecules_from_uniprot_ids.ipynb)
-   - Molecule library [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/molecule_library.ipynb)
+   - Pipeline (to obtain molecule library) [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/chembl_molecules_from_uniprot_ids.ipynb).
+   - Result (molecule library) [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/molecule_library.ipynb).
    
 8. ProBis offers also prediced ligands (*ProBis ligand table*).
    - Find out how this dataset can be of use here.
