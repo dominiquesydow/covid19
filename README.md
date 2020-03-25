@@ -1,8 +1,10 @@
 # COVID-19 main protease: Ligands from similar binding sites
 
-Read across the PDB to find similar binding sites and their associated ligands fro COVID-19 main protease.
+Read across the PDB to find similar binding sites and their associated molecules.
 
-## Potential steps
+## Steps
+
+### Target and binding site definition
 
 1. [Done] Decide on a target.
    - COVID-19 main protease
@@ -17,7 +19,10 @@ Read across the PDB to find similar binding sites and their associated ligands f
    - Load all XChem structures in `biopython`.
    - Get residues in a defined radius of ligand centroids.
    - Find overlapping residues across all structures (define residue coverage threshold).
-   - Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/binding_site_definition.ipynb).
+   
+   Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/binding_site_definition.ipynb).
+
+### Similar binding sites / proteins
 
 4. [Done] Submit job to ProBis, including binding site definition
    - Full 6LU7: [ProBis job URL](http://probis.cmm.ki.si/?what=job&job_id=24032003478165)
@@ -28,23 +33,27 @@ Read across the PDB to find similar binding sites and their associated ligands f
      | 68         | 15              | 0.5             | [ProBis job URL](http://probis.cmm.ki.si/?what=job&job_id=25032048431709) |
 
 5. [Done] Download ProBis results
-   - *ProBis ligand table*: "Predicted Ligands" tab > "Download Table"
    - *ProBis protein table*: "Similar Proteins" tab > "Download Table"
+   - *ProBis ligand table*: "Predicted Ligands" tab > "Download Table"
    
    ProBis results live [here](https://github.com/dominiquesydow/covid19/tree/master/data/probis)
    
 6. [Done] Parse ProBis ligand and protein tables
 
-   - Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/probis_parser.ipynb).
+   Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/probis_parser.ipynb).
 
-7. Query ChEMBL for ligands (`chembl_webresource_client`)
-   - Get ligand and bioactivity data for ligands from *ProBis ligand table* (by ligand name?).
-   - Get ligand and bioactivity data for proteins from *ProBis protein table* (by UniProt IDs).
-   - What kind of data should be saved?
-     - Ligand data: SMILES, ...
-     - Bioactivity data: Bioactivity against measured targets
+### Active molecules against similar proteins
 
-8. Filter ChEMBL ligands by bioactivity (define threshold) to keep only “active” ligands.
+7. [Done] Query ChEMBL for "active" molecules, given a defined pIC50 cutoff (`chembl_webresource_client`)
+   
+   - Get molecule and bioactivity data for proteins from *ProBis protein table* (by UniProt IDs).
+   - Filter ChEMBL molecules by bioactivity (define threshold) to keep only “active” molecules.
 
-9. Give ligand data to the next person in the COVID-19 pipeline.
+   Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/chembl_ligands_from_probis_proteins.ipynb).
+   
+8. ProBis offers also prediced ligands (*ProBis ligand table*).
+   - Find out how this dataset can be of use here.
+   - Get molecule and bioactivity data for ligands from *ProBis ligand table* by ligand name?
+
+
 
