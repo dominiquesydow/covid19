@@ -34,6 +34,8 @@ Read across the PDB to find similar binding sites and their associated ligands f
    
 6. Parse ProBis ligand and protein tables
 
+   Check out [notebook](https://github.com/dominiquesydow/covid19/blob/master/notebooks/probis_parser.ipynb)
+
 7. Query ChEMBL for ligands (`chembl_webresource_client`)
    - Get ligand and bioactivity data for ligands from *ProBis ligand table* (by ligand name?)
    - Get ligand and bioactivity data for proteins from *ProBis protein table* (by UniProt IDs)
