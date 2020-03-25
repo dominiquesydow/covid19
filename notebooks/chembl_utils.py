@@ -2,6 +2,7 @@
 Utility functions for ChEMBL queries.
 """
 
+from datetime import datetime
 import math
 
 from chembl_webresource_client.new_client import new_client
@@ -18,7 +19,7 @@ def targets_by_uniprot_ids(uniprot_ids):
     Get target ChEMBL data by UniProt IDs.
     """
     
-    targets_by_uniprot_ids = []
+    targets_all = []
     
     for uniprot_id in uniprot_ids:
     
@@ -33,9 +34,9 @@ def targets_by_uniprot_ids(uniprot_ids):
         
         targets = pd.DataFrame.from_records(targets)
         targets['uniprot_id'] = uniprot_id
-        targets_by_uniprot_ids.append(targets)
+        targets_all.append(targets)
         
-    return pd.concat(targets_by_uniprot_ids, sort=False)
+    return pd.concat(targets_all, sort=False)
 
 
 def bioactivities_by_target_chembl_ids(target_chembl_ids):
@@ -43,7 +44,7 @@ def bioactivities_by_target_chembl_ids(target_chembl_ids):
     Get bioactivity ChEMBL data by target ChEMBL IDs.
     """
     
-    bioactivities_by_chembl_target_ids = []
+    bioactivities_all = []
     
     for i, target_chembl_id in enumerate(target_chembl_ids):
         
@@ -77,18 +78,18 @@ def bioactivities_by_target_chembl_ids(target_chembl_ids):
             inplace=True
         )
         
-        bioactivities_by_chembl_target_ids.append(bioactivities)
+        bioactivities_all.append(bioactivities)
         
-    bioactivities_by_chembl_target_ids = pd.concat(bioactivities_by_chembl_target_ids, sort=False)
+    bioactivities_all = pd.concat(bioactivities_all, sort=False)
     
     # Some bioactivity entries are return multiple times (I do not know why), keep only first
-    bioactivities_by_chembl_target_ids.drop_duplicates(
+    bioactivities_all.drop_duplicates(
         'activity_id',
         keep='first',
         inplace=True
     )
     
-    return bioactivities_by_chembl_target_ids
+    return bioactivities_all
 
 
 def molecules_by_molecule_chembl_ids(molecule_chembl_ids):
@@ -96,11 +97,29 @@ def molecules_by_molecule_chembl_ids(molecule_chembl_ids):
     Get molecule ChEMBL data by molecule ChEMBL IDs.
     """
     
-    molecules = MOLECULE_API.filter(
-        molecule_chembl_id__in = list(molecule_chembl_ids)
-    ).only('molecule_chembl_id','molecule_structures')
+    molecules_all = []
     
-    molecules = pd.DataFrame.from_records(molecules)
+    for i, molecule_chembl_id in enumerate(molecule_chembl_ids):
+        
+        if i%100 == 0:
+            print(f'Progress {datetime.now()}: {i}/{len(molecule_chembl_ids)}')
+    
+        molecules = MOLECULE_API.filter(
+            molecule_chembl_id = molecule_chembl_id
+        ).only('molecule_chembl_id','molecule_structures')
+        
+        molecules = pd.DataFrame.from_records(molecules)
+        
+        # Remove entries where any data is missing
+        molecules.dropna(
+            axis=0, 
+            how='any', 
+            inplace=True
+        )
+        
+        molecules_all.append(molecules)
+        
+    molecules = pd.concat(molecules, sort=False)
     
     # Split different molecule structure representations in individual columns
     for index, row in molecules.iterrows():
