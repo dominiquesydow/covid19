@@ -29,6 +29,8 @@ Read across the PDB to find similar binding sites and their associated ligands f
    - *ProBis ligand table*: "Predicted Ligands" tab > "Download Table"
    - *ProBis protein table*: "Similar Proteins" tab > "Download Table"
    
+   ProBis results live [here](https://github.com/dominiquesydow/covid19/tree/master/data/probis).
+   
 6. Parse ProBis ligand and protein tables.
 
 7. Query ChEMBL for ligands (`chembl_webresource_client`)
