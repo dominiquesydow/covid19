@@ -14,7 +14,7 @@ Read across the PDB to find similar binding sites and their associated molecules
    - Notebook: [`02_probis_data_preparation.ipynb`](https://github.com/dominiquesydow/covid19/blob/master/notebooks/02_probis_data_preparation.ipynb)
 3. Molecules active against similar proteins
    - Get active molecules against similar proteins based on UniProt IDs (ChEMBL query)
-   - Notebook: [`chembl_molecules_from_uniprot_ids.ipynb`](https://github.com/dominiquesydow/covid19/blob/master/notebooks/03_chembl_molecules_from_uniprot_ids.ipynb)
+   - Notebook: [`03_chembl_molecules_from_uniprot_ids.ipynb`](https://github.com/dominiquesydow/covid19/blob/master/notebooks/03_chembl_molecules_from_uniprot_ids.ipynb)
 4. Explore molecule library
    - Look at output molecule library
    - Notebook: [`04_molecule_library.ipynb`](https://github.com/dominiquesydow/covid19/blob/master/notebooks/04_molecule_library.ipynb)
