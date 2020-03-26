@@ -1,3 +1,5 @@
+**This repository was moved to https://github.com/volkamerlab/covid19-SBapproach, where this work continues. This repository here will not be further updated.**
+
 # COVID-19 main protease: Ligands from similar binding sites
 
 Read across the PDB to find similar binding sites and their associated molecules in ChEMBL.
