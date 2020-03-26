@@ -7,17 +7,17 @@ Read across the PDB to find similar binding sites and their associated molecules
 
 1. Binding site definition
    - Define target's binding site based on multiple ligand positions.
-   - Notebook: [`binding_site_definition.ipynb`](https://github.com/dominiquesydow/covid19/blob/master/notebooks/binding_site_definition.ipynb)
+   - Notebook: [`01_binding_site_definition.ipynb`](https://github.com/dominiquesydow/covid19/blob/master/notebooks/01_binding_site_definition.ipynb)
 2. Binding site comparison
    - Download results from ProBis (manually) and parse files
    - Get UniProt IDs from most similar proteins
-   - Notebook: [`probis_data_preparation.ipynb`](https://github.com/dominiquesydow/covid19/blob/master/notebooks/probis_data_preparation.ipynb)
+   - Notebook: [`02_probis_data_preparation.ipynb`](https://github.com/dominiquesydow/covid19/blob/master/notebooks/02_probis_data_preparation.ipynb)
 3. Molecules active against similar proteins
    - Get active molecules against similar proteins based on UniProt IDs (ChEMBL query)
-   - Notebook: [`chembl_ligands_from_probis.ipynb`](https://github.com/dominiquesydow/covid19/blob/master/notebooks/chembl_molecules_from_uniprot_ids.ipynb)
+   - Notebook: [`chembl_ligands_from_probis.ipynb`](https://github.com/dominiquesydow/covid19/blob/master/notebooks/03_chembl_molecules_from_uniprot_ids.ipynb)
 4. Explore molecule library
    - Look at output molecule library
-   - Notebook: [`molecule_library.ipynb`](https://github.com/dominiquesydow/covid19/blob/master/notebooks/molecule_library.ipynb)
+   - Notebook: [`04_molecule_library.ipynb`](https://github.com/dominiquesydow/covid19/blob/master/notebooks/04_molecule_library.ipynb)
    
    
 ## Data

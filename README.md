@@ -20,7 +20,7 @@ Read across the PDB to find similar binding sites and their associated molecules
    - Get residues in a defined radius of ligand centroids.
    - Find overlapping residues across all structures (define residue coverage threshold).
    
-   Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/binding_site_definition.ipynb).
+   Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/01_binding_site_definition.ipynb).
 
 ### Similar binding sites / proteins
 
@@ -40,7 +40,7 @@ Read across the PDB to find similar binding sites and their associated molecules
    
 6. [Done] Parse ProBis ligand and protein tables.
 
-   Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/probis_data_preparation.ipynb).
+   Check out notebook [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/02_probis_data_preparation.ipynb).
 
 ### Active molecules against similar proteins
 
@@ -50,8 +50,8 @@ Read across the PDB to find similar binding sites and their associated molecules
    - Filter ChEMBL molecules by bioactivity (define threshold) to keep only “active” molecules.
 
    Checkout notebooks:
-   - Pipeline (to obtain molecule library) [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/chembl_molecules_from_uniprot_ids.ipynb).
-   - Result (molecule library) [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/molecule_library.ipynb).
+   - Pipeline (to obtain molecule library) [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/03_chembl_molecules_from_uniprot_ids.ipynb).
+   - Result (molecule library) [here](https://github.com/dominiquesydow/covid19/blob/master/notebooks/04_molecule_library.ipynb).
    
 8. ProBis offers also prediced ligands (*ProBis ligand table*).
    - Find out how this dataset can be of use here.
