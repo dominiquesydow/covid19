@@ -19,6 +19,7 @@ Read across the PDB to find similar binding sites and their associated molecules
    - Look at output molecule library
    - Notebook: [`molecule_library.ipynb`](https://github.com/dominiquesydow/covid19/blob/master/notebooks/molecule_library.ipynb)
    
+Note: This pipeline could be automatized before (1.) and after (2.-4.) the manual ProBis step.
    
 ## Data
 
